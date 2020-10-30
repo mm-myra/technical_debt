@@ -37,3 +37,28 @@
     …
     一直到100
 """
+
+def work(n1,n2,n3,number):
+    a=['']*number
+    for i in range(1,number+1):
+        tmp = ''
+        # 所报数字包含了第一个特殊数
+        if str(n1) in str(i):
+            tmp+='Fizz'
+        else:
+            # 所报数字是第一个特殊数（3）的倍数
+            if i%n1==0:
+                tmp+='Fizz'
+            if i%n2==0:
+                tmp+='Buzz'
+            if i%n3==0:
+                tmp+='Whizz'
+        if tmp == '':
+            tmp = str(i)
+        a[i-1]=tmp
+    return a
+
+n1,n2,n3 = map(int, input().strip().split(','))
+result = work(n1,n2,n3,100)
+for i in range(0,len(result)):
+    print(result[i])
