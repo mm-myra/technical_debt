@@ -1,5 +1,8 @@
 """
 ZJ19 	万万没想到之抓捕孔连顺
+
+https://www.nowcoder.com/practice/c0803540c94848baac03096745b55b9b?tpId=137&tags=&title=&diffculty=0&judgeStatus=0&rp=0
+
 题目描述
 我叫王大锤，是一名特工。我刚刚接到任务：在字节跳动大街进行埋伏，抓捕恐怖分子孔连顺。和我一起行动的还有另外两名特工，我提议
 
@@ -13,7 +16,7 @@ ZJ19 	万万没想到之抓捕孔连顺
 请听题：给定N（可选作为埋伏点的建筑物数）、D（相距最远的两名特工间的距离的最大值）以及可选建筑的坐标，计算在这次行动中，大锤的小队有多少种埋伏选择。
 注意：
 1. 两个特工不能埋伏在同一地点
-2. 三个特工是等价的：即同样的位置组合(A, B, C) 只算一种埋伏方法，不能因“特工之间互换位置”而重复使用 
+2. 三个特工是等价的：即同样的位置组合(A, B, C) 只算一种埋伏方法，不能因“特工之间互换位置”而重复使用
 
 输入描述:
 第一行包含空格分隔的两个数字 N和D(1 ≤ N ≤ 1000000; 1 ≤ D ≤ 1000000)
@@ -22,19 +25,24 @@ ZJ19 	万万没想到之抓捕孔连顺
 输出描述:
 一个数字，表示不同埋伏方案的数量。结果可能溢出，请对 99997867 取模
 """
-def work(n,d,location):
-    if n<3:
+
+
+def work(n, d, location):
+    if n < 3:
         return 0
     else:
         count = 0
-        j=0
-        for i in range(2,len(location)):
-            while j<n-2 and location[i] - location[j] > d :
-                j=j+1
+        j = 0
+        for i in range(2, len(location)):
+            while j < (n-2) and location[i] - location[j] > d:
+                j = j + 1
             tmp = i-j
-            count = count+tmp*(tmp-1)/2 
+            count = count + tmp * (tmp-1) / 2
         return count
-n,d = map(int, input().strip().split())
-location = list(map(int, input().strip().split()))  
-count = work(n,d,location)
-print(int(count% 99997867))
+
+
+if __name__ == '__main__':
+    n, d = map(int, input().strip().split())
+    location = list(map(int, input().strip().split()))
+    count = work(n, d, location)
+    print(int(count % 99997867))

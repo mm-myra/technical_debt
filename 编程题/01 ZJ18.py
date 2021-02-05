@@ -1,4 +1,8 @@
 """
+万万没想到之聪明的编辑
+
+https://www.nowcoder.com/practice/42852fd7045c442192fa89404ab42e92?tpId=137&tags=&title=&diffculty=0&judgeStatus=0&rp=0&tab=answerKey
+
 题目描述
 我叫王大锤，是一家出版社的编辑。我负责校对投稿来的英文稿件，这份工作非常烦人，因为每天都要去修正无数的拼写错误。但是，优秀的人总能在平凡的工作中发现真理。我发现一个发现拼写错误的捷径：
 
@@ -8,7 +12,10 @@
 
 我特喵是个天才！我在蓝翔学过挖掘机和程序设计，按照这个原理写了一个自动校对器，工作效率从此起飞。用不了多久，我就会出任CEO，当上董事长，迎娶白富美，走上人生巅峰，想想都有点小激动呢！
 ……
-万万没想到，我被开除了，临走时老板对我说： “做人做事要兢兢业业、勤勤恳恳、本本分分，人要是行，干一行行一行。一行行行行行；要是不行，干一行不行一行，一行不行行行不行。” 我现在整个人红红火火恍恍惚惚的……
+万万没想到，我被开除了，临走时老板对我说：
+    “做人做事要兢兢业业、勤勤恳恳、本本分分，人要是行，干一行行一行。一行行行行行；
+    要是不行，干一行不行一行，一行不行行行不行。”
+    我现在整个人红红火火恍恍惚惚的……
 
 请听题：请实现大锤的自动校对程序
 输入描述:
@@ -37,16 +44,18 @@ hello
 woow
 
 """
+
+
 # 第一个输入：字符串个数
 n = int(input())
 # 当n大于0时，对输入的字符串进行处理
-while n>0:
-    s=input()
+while n > 0:
+    s = input()
     result = []
     # 对输入字符串的每个字符 e 进行判断和处理
     for e in s:
         # 如果：当前结果字符串 result 只有0或1个字符，可直接拼接 e
-        if len(result)<2:
+        if len(result) < 2:
             result.append(e)
         elif len(result) == 2:
             # 判断是否为三个同样的字母连在一起
@@ -56,12 +65,12 @@ while n>0:
                 result.append(e)
         else:
             # 判断是否为三个同样的字母连在一起
-            if result[-1]==e and result[-2] == e:
+            if result[-1] == e and result[-2] == e:
                 continue
             # 两对一样的字母（AABB型）连在一起
-            elif result[-3]==result[-2] and result[-1] == e:
+            elif result[-3] == result[-2] and result[-1] == e:
                 continue
             else:
                 result.append(e)
     print("".join(result))
-    n=n-1
+    n = n - 1
