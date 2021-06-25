@@ -1,5 +1,5 @@
 '''
-毕业旅行
+ZJ22 毕业旅行
 
 https://www.nowcoder.com/practice/3d1adf0f16474c90b27a9954b71d125d?tpId=137&tags=&title=&diffculty=0&judgeStatus=0&rp=0&tab=answerKey
 
@@ -44,10 +44,44 @@ https://www.nowcoder.com/practice/3d1adf0f16474c90b27a9954b71d125d?tpId=137&tags
 '''
 动态规划：将一个问题分解为相同性质的子问题，从而逐渐降低求解范围，直至问题可以直接求解。
 
+通常用于求解具有某种最优性质的问题，其基本思想是将待求解问题分解成若干个子问题，先求解子问题，然后由这些子问题的解再得到原问题的解。
+
 核心：'记住求过的解来节省时间'，
 动态规划往往用于优化递归问题，例如斐波那契数列，如果运用递归的方式来求解会重复计算很多相同的子问题，利用动态规划的思想可以减少计算量。
 
 求解的方式有两种：
     ①自顶向下的备忘录法
     ②自底向上。
+'''
+
+# class Solution:
+#     def trip(city_n, money):
+#         for i in range(city_n):
+
+
+'''
+参考，位验证是否可行
+if __name__ == "__main__":
+    n=int(input())
+    m=[]
+    for i in range(n):
+        m.append(list(map(int,input().split())))
+    s=0
+    past=set()
+    past.add((0,0))
+    for i in range(1,n):
+        a,b=0,0
+        cost=m[i][a]+m[i][b]
+        for p in past:
+            c=m[p[0]][i]+m[p[1]][i]-m[p[0]][p[1]]
+            if(c < cost):
+                a=p[0]
+                b=p[1]
+                cost=c
+        s+=cost
+        past.remove((a,b))
+        past.add((a,i))
+        past.add((i,a))
+    print(s)
+
 '''
